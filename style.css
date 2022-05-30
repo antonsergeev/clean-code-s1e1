@@ -40,8 +40,9 @@
   flex-grow: 1
 }
 
-.task-row-wrapper {
+.new-task__container {
   display: flex;
+  margin: 20px 0 0;
 }
 
 ul {
@@ -73,8 +74,7 @@ button:hover {
 }
 
 /* Heading */
-h3,
-label[for="new-task"] {
+h3 {
   color: #333;
   font-weight: 700;
   font-size: 15px;
@@ -99,12 +99,6 @@ input[type="text"] {
 
 input[type="text"]:focus {
   color: #333;
-}
-
-/* New Task */
-label[for="new-task"] {
-  display: block;
-  margin: 0 0 20px;
 }
 
 .new-task__input {

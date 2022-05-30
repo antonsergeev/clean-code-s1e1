@@ -7,8 +7,8 @@
 
 var taskInput = document.querySelector(".new-task__input");
 var addButton = document.getElementsByTagName("button")[0];
-var incompleteTaskHolder = document.querySelector(".incomplete-tasks");
-var completedTasksHolder = document.querySelector(".completed-tasks");
+var incompleteTaskHolder = document.querySelector(".incomplete-tasks__items");
+var completedTasksHolder = document.querySelector(".completed-tasks__items");
 
 var createNewTaskElement = function (taskString) {
     var listItem = document.createElement("li");
@@ -29,8 +29,10 @@ var createNewTaskElement = function (taskString) {
 
     editButton.innerText = "Edit";
     editButton.className = "edit";
+    editButton.type = "button";
 
     deleteButton.className = "delete";
+    deleteButton.type = "button";
     deleteButtonImg.src = "./remove.svg";
     deleteButtonImg.alt = "Remove";
     deleteButton.appendChild(deleteButtonImg);

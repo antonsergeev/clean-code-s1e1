@@ -101,7 +101,6 @@ var ajaxRequest = function () {
     console.log("AJAX Request");
 }
 
-addButton.onclick = addTask;
 addButton.addEventListener("click", addTask);
 addButton.addEventListener("click", ajaxRequest);
 
@@ -121,6 +120,5 @@ for (var i = 0; i < incompleteTaskHolder.children.length; i++) {
 }
 
 for (var i = 0; i < completedTasksHolder.children.length; i++) {
-    //bind events to list items chldren(tasksIncompleted)
     bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
 }

@@ -5,10 +5,10 @@
 //Solution: Add interactivity so the user can manage daily tasks.
 //Break things down into smaller steps and take each step at a time.
 
-var taskInput = document.getElementById("new-task");
+var taskInput = document.querySelector(".new-task__input");
 var addButton = document.getElementsByTagName("button")[0];
-var incompleteTaskHolder = document.getElementById("incomplete-tasks");
-var completedTasksHolder = document.getElementById("completed-tasks");
+var incompleteTaskHolder = document.querySelector(".incomplete-tasks");
+var completedTasksHolder = document.querySelector(".completed-tasks");
 
 var createNewTaskElement = function (taskString) {
     var listItem = document.createElement("li");

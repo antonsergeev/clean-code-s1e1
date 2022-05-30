@@ -5,38 +5,37 @@
 //Solution: Add interactivity so the user can manage daily tasks.
 //Break things down into smaller steps and take each step at a time.
 
-var taskInput = document.querySelector(".new-task__input");
-var addButton = document.getElementsByTagName("button")[0];
+var newTaskInput = document.querySelector(".new-task__input");
+var newTaskButton = document.querySelector(".new-task__button");
 var incompleteTaskHolder = document.querySelector(".incomplete-tasks__items");
 var completedTasksHolder = document.querySelector(".completed-tasks__items");
 
 var createNewTaskElement = function (taskString) {
-    var listItem = document.createElement("li");
     var checkBox = document.createElement("input");
+    checkBox.type = "checkbox";
+
     var label = document.createElement("label");
-    var editInput = document.createElement("input");
-    var editButton = document.createElement("button");
-
-    var deleteButton = document.createElement("button");
-    var deleteButtonImg = document.createElement("img");
-
     label.innerText = taskString;
     label.className = "task";
 
-    checkBox.type = "checkbox";
+    var editInput = document.createElement("input");
     editInput.type = "text";
     editInput.className = "task";
 
+    var editButton = document.createElement("button");
     editButton.innerText = "Edit";
     editButton.className = "edit";
     editButton.type = "button";
 
+    var deleteButton = document.createElement("button");
     deleteButton.className = "delete";
     deleteButton.type = "button";
+    var deleteButtonImg = document.createElement("img");
     deleteButtonImg.src = "./remove.svg";
     deleteButtonImg.alt = "Remove";
     deleteButton.appendChild(deleteButtonImg);
 
+    var listItem = document.createElement("li");
     listItem.appendChild(checkBox);
     listItem.appendChild(label);
     listItem.appendChild(editInput);
@@ -48,12 +47,12 @@ var createNewTaskElement = function (taskString) {
 
 var addTask = function () {
     console.log("Add Task...");
-    if (!taskInput.value) return;
+    if (!newTaskInput.value) return;
 
-    var listItem = createNewTaskElement(taskInput.value);
+    var listItem = createNewTaskElement(newTaskInput.value);
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskCompleted);
-    taskInput.value = "";
+    newTaskInput.value = "";
 }
 
 var editTask = function () {
@@ -101,8 +100,8 @@ var ajaxRequest = function () {
     console.log("AJAX Request");
 }
 
-addButton.addEventListener("click", addTask);
-addButton.addEventListener("click", ajaxRequest);
+newTaskButton.addEventListener("click", addTask);
+newTaskButton.addEventListener("click", ajaxRequest);
 
 var bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
     console.log("bind list item events");
@@ -117,8 +116,5 @@ var bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
 
 for (var i = 0; i < incompleteTaskHolder.children.length; i++) {
     bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
-}
-
-for (var i = 0; i < completedTasksHolder.children.length; i++) {
     bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
 }
